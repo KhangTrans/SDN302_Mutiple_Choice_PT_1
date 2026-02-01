@@ -937,11 +937,6 @@ function renderFlashcard() {
   // Update question on front
   document.getElementById("flashcard-question").textContent = card.question;
 
-  // Update answer
-  const correctOption = card.options[card.correctAnswer];
-  document.getElementById("flashcard-answer").textContent =
-    String.fromCharCode(65 + card.correctAnswer) + ". " + correctOption;
-
   // Update all options on back
   const optionsContainer = document.getElementById("flashcard-options");
   optionsContainer.innerHTML = "";
