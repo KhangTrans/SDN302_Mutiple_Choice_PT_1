@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="flashcard.css" />
+    <link rel="stylesheet" href="theme-modern.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,8 +41,18 @@
               />
               <defs>
                 <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
-                  <stop offset="0%" stop-color="#667eea" />
-                  <stop offset="100%" stop-color="#764ba2" />
+                  <stop offset="0%" stop-color="#000000" />
+                  <stop offset="100%" stop-color="#333333" />
+                </linearGradient>
+                <linearGradient
+                  id="gradient-modern"
+                  x1="0"
+                  y1="0"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#000000" />
+                  <stop offset="100%" stop-color="#333333" />
                 </linearGradient>
               </defs>
             </svg>
@@ -85,8 +96,8 @@
                 />
                 <defs>
                   <linearGradient id="gradient2" x1="0" y1="0" x2="80" y2="80">
-                    <stop offset="0%" stop-color="#667eea" />
-                    <stop offset="100%" stop-color="#764ba2" />
+                    <stop offset="0%" stop-color="#000000" />
+                    <stop offset="100%" stop-color="#333333" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -210,6 +221,21 @@
 
           <!-- Navigation Buttons -->
           <div class="quiz-navigation">
+            <button class="btn btn-secondary" id="quiz-back-to-home-btn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 10l-1-1 8-8 8 8-1 1M4 9v9a1 1 0 001 1h3a1 1 0 001-1v-5h2v5a1 1 0 001 1h3a1 1 0 001-1V9"
+                />
+              </svg>
+              <span>Quay lại</span>
+            </button>
             <button class="btn btn-secondary" id="prev-btn" disabled>
               <svg
                 width="20"
@@ -284,8 +310,8 @@
                       x2="100%"
                       y2="100%"
                     >
-                      <stop offset="0%" stop-color="#667eea" />
-                      <stop offset="100%" stop-color="#764ba2" />
+                      <stop offset="0%" stop-color="#000000" />
+                      <stop offset="100%" stop-color="#333333" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -361,6 +387,21 @@
             </div>
 
             <div class="result-actions">
+              <button class="btn btn-secondary" id="back-to-home-btn">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M3 10l-1-1 8-8 8 8-1 1M4 9v9a1 1 0 001 1h3a1 1 0 001-1v-5h2v5a1 1 0 001 1h3a1 1 0 001-1V9"
+                  />
+                </svg>
+                <span>Quay lại</span>
+              </button>
               <button class="btn btn-secondary" id="review-btn">
                 <svg
                   width="20"

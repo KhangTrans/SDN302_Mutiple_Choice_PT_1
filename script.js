@@ -540,6 +540,8 @@ const nextBtn = document.getElementById("next-btn");
 const reviewBtn = document.getElementById("review-btn");
 const restartBtn = document.getElementById("restart-btn");
 const backToResultBtn = document.getElementById("back-to-result-btn");
+const backToHomeBtn = document.getElementById("back-to-home-btn");
+const quizBackToHomeBtn = document.getElementById("quiz-back-to-home-btn");
 
 // Event Listeners
 startQuizBtn.addEventListener("click", startQuiz);
@@ -548,6 +550,8 @@ nextBtn.addEventListener("click", nextQuestion);
 reviewBtn.addEventListener("click", showReview);
 restartBtn.addEventListener("click", restartQuiz);
 backToResultBtn.addEventListener("click", backToResult);
+backToHomeBtn.addEventListener("click", backToHome);
+quizBackToHomeBtn.addEventListener("click", backToHomeFromQuiz);
 
 // Initialize Quiz
 function startQuiz() {
@@ -822,6 +826,39 @@ function showReview() {
 function backToResult() {
   reviewScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
+}
+
+// Back to Home
+function backToHome() {
+  resultScreen.classList.add("hidden");
+  reviewScreen.classList.add("hidden");
+  quizScreen.classList.add("hidden");
+  welcomeScreen.classList.remove("hidden");
+  
+  // Reset quiz state
+  currentQuestionIndex = 0;
+  userAnswers = new Array(quizData.length).fill(null);
+  score = 0;
+  
+  document.getElementById("score").textContent = "0";
+  document.getElementById("score-circle").style.strokeDashoffset = 565.48;
+}
+
+// Back to Home from Quiz
+function backToHomeFromQuiz() {
+  // Confirm if user wants to leave quiz
+  if (confirm("Bạn có chắc muốn thoát? Tiến trình làm bài sẽ bị mất.")) {
+    quizScreen.classList.add("hidden");
+    welcomeScreen.classList.remove("hidden");
+    
+    // Reset quiz state
+    currentQuestionIndex = 0;
+    userAnswers = new Array(quizData.length).fill(null);
+    score = 0;
+    
+    document.getElementById("score").textContent = "0";
+    document.getElementById("score-circle").style.strokeDashoffset = 565.48;
+  }
 }
 
 // Restart Quiz
