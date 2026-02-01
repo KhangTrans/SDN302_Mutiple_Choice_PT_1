@@ -1,0 +1,583 @@
+/* ===== ENHANCED MOBILE RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .welcome-card,
+  .question-card,
+  .result-card {
+    padding: 36px 28px;
+  }
+
+  .quiz-info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Mobile Large (Landscape phones) - Enhanced */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    padding: 14px 0;
+  }
+
+  .header-content {
+    gap: 12px;
+  }
+
+  .logo svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo h1 {
+    font-size: 17px;
+  }
+
+  .header-stats {
+    gap: 16px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  /* Welcome Screen */
+  .welcome-card {
+    padding: 28px 20px;
+    margin: 16px 0;
+  }
+
+  .welcome-card h2 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .welcome-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-info {
+    padding: 14px;
+    margin: 20px 0;
+  }
+
+  .quiz-info-item {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .welcome-actions {
+    gap: 12px;
+  }
+
+  .btn-large {
+    padding: 13px 22px;
+    font-size: 14px;
+  }
+
+  /* Quiz Screen */
+  .progress-container {
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+
+  .progress-text,
+  .progress-percentage {
+    font-size: 13px;
+  }
+
+  .question-card {
+    padding: 22px 18px;
+    margin-bottom: 16px;
+  }
+
+  .question-header {
+    margin-bottom: 16px;
+  }
+
+  .question-number,
+  .question-unit {
+    font-size: 12px;
+  }
+
+  .question-text {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .options-container {
+    gap: 10px;
+  }
+
+  .option {
+    padding: 13px 15px;
+    font-size: 14px;
+  }
+
+  .option-label {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .option-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Navigation - Improved */
+  .quiz-navigation {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-navigation .btn {
+    flex: 1;
+    min-width: calc(50% - 5px);
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+
+  .quiz-navigation .btn:first-child {
+    flex: 1 1 100%;
+  }
+
+  /* Question Navigator */
+  .question-navigator {
+    padding: 18px;
+  }
+
+  .question-navigator h4 {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 9px;
+  }
+
+  .question-nav-item {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  /* Result Screen */
+  .result-card {
+    padding: 28px 20px;
+  }
+
+  .result-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .score-circle {
+    width: 130px;
+    height: 130px;
+    margin: 20px auto;
+  }
+
+  .score-value {
+    font-size: 34px;
+  }
+
+  .score-label {
+    font-size: 13px;
+  }
+
+  .result-message {
+    font-size: 14px;
+    margin: 16px 0;
+  }
+
+  .result-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 20px 0;
+  }
+
+  .result-stat {
+    padding: 14px;
+  }
+
+  .result-stat-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .result-stat-value {
+    font-size: 24px;
+  }
+
+  .result-stat-label {
+    font-size: 12px;
+  }
+
+  .result-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .result-actions .btn {
+    width: 100%;
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+
+  /* Review Screen */
+  .review-header {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .review-header h2 {
+    font-size: 19px;
+  }
+
+  .review-question {
+    padding: 22px 18px;
+    margin-bottom: 14px;
+  }
+
+  .review-question-header {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .review-question-text {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .review-option {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+
+  .review-option-label {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile Medium - Enhanced */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .header {
+    padding: 12px 0;
+  }
+
+  .logo h1 {
+    font-size: 15px;
+  }
+
+  .header-stats {
+    gap: 10px;
+  }
+
+  .stat {
+    min-width: 50px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  /* Welcome Screen */
+  .welcome-card {
+    padding: 22px 16px;
+    margin: 12px 0;
+  }
+
+  .welcome-card h2 {
+    font-size: 19px;
+  }
+
+  .welcome-card p {
+    font-size: 13px;
+  }
+
+  .quiz-info {
+    padding: 12px;
+  }
+
+  .quiz-info-item {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+
+  .btn-large {
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+
+  .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Quiz Screen */
+  .progress-container {
+    padding: 11px 14px;
+  }
+
+  .progress-text,
+  .progress-percentage {
+    font-size: 12px;
+  }
+
+  .question-card {
+    padding: 18px 14px;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .question-number,
+  .question-unit {
+    font-size: 11px;
+  }
+
+  .question-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .option {
+    padding: 11px 13px;
+    font-size: 13px;
+  }
+
+  .option-label {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  /* Navigation */
+  .quiz-navigation {
+    gap: 8px;
+  }
+
+  .quiz-navigation .btn {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  /* Question Navigator */
+  .question-navigator {
+    padding: 14px;
+  }
+
+  .question-navigator h4 {
+    font-size: 12px;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+  }
+
+  .question-nav-item {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+
+  /* Result Screen */
+  .result-card {
+    padding: 20px 14px;
+  }
+
+  .result-card h2 {
+    font-size: 20px;
+  }
+
+  .score-circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .score-value {
+    font-size: 30px;
+  }
+
+  .score-label {
+    font-size: 12px;
+  }
+
+  .result-message {
+    font-size: 13px;
+  }
+
+  .result-stat {
+    padding: 12px;
+  }
+
+  .result-stat-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .result-stat-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .result-stat-value {
+    font-size: 20px;
+  }
+
+  .result-stat-label {
+    font-size: 11px;
+  }
+
+  .result-actions .btn {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  /* Review Screen */
+  .review-header {
+    padding: 14px;
+  }
+
+  .review-header h2 {
+    font-size: 17px;
+  }
+
+  .review-question {
+    padding: 18px 14px;
+  }
+
+  .review-question-header {
+    font-size: 12px;
+  }
+
+  .review-question-text {
+    font-size: 14px;
+  }
+
+  .review-option {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .review-option-label {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile Small - Enhanced */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .logo h1 {
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 14px;
+  }
+
+  .welcome-card {
+    padding: 18px 12px;
+  }
+
+  .welcome-card h2 {
+    font-size: 17px;
+  }
+
+  .question-text {
+    font-size: 14px;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .question-nav-item {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
+
+  .btn {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .result-card h2 {
+    font-size: 18px;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-value {
+    font-size: 26px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .option,
+  .question-nav-item,
+  .flashcard-grid-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .option,
+  .review-option {
+    padding: 14px 16px;
+  }
+}
