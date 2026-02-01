@@ -842,3 +842,251 @@ function restartQuiz() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("total-questions").textContent = quizData.length;
 });
+
+// ===== FLASHCARD FUNCTIONALITY =====
+
+// Flashcard State
+let currentFlashcardIndex = 0;
+let flashcardData = [...quizData]; // Copy of quiz data
+let viewedFlashcards = new Set();
+let isAutoPlaying = false;
+let autoPlayInterval = null;
+
+// Flashcard DOM Elements
+const flashcardScreen = document.getElementById("flashcard-screen");
+const startFlashcardBtn = document.getElementById("start-flashcard-btn");
+const exitFlashcardBtn = document.getElementById("exit-flashcard-btn");
+const flashcard = document.getElementById("flashcard");
+const prevFlashcardBtn = document.getElementById("prev-flashcard-btn");
+const nextFlashcardBtn = document.getElementById("next-flashcard-btn");
+const shuffleFlashcardBtn = document.getElementById("shuffle-flashcard-btn");
+const autoPlayBtn = document.getElementById("auto-play-btn");
+
+// Flashcard Event Listeners
+startFlashcardBtn.addEventListener("click", startFlashcard);
+exitFlashcardBtn.addEventListener("click", exitFlashcard);
+flashcard.addEventListener("click", flipFlashcard);
+prevFlashcardBtn.addEventListener("click", previousFlashcard);
+nextFlashcardBtn.addEventListener("click", nextFlashcard);
+shuffleFlashcardBtn.addEventListener("click", shuffleFlashcards);
+autoPlayBtn.addEventListener("click", toggleAutoPlay);
+
+// Start Flashcard Mode
+function startFlashcard() {
+  welcomeScreen.classList.add("hidden");
+  flashcardScreen.classList.remove("hidden");
+  currentFlashcardIndex = 0;
+  viewedFlashcards.clear();
+  renderFlashcard();
+  renderFlashcardGrid();
+  updateFlashcardProgress();
+}
+
+// Exit Flashcard Mode
+function exitFlashcard() {
+  flashcardScreen.classList.add("hidden");
+  welcomeScreen.classList.remove("hidden");
+  stopAutoPlay();
+  flashcard.classList.remove("flipped");
+}
+
+// Render Current Flashcard
+function renderFlashcard() {
+  const card = flashcardData[currentFlashcardIndex];
+
+  // Reset flip state
+  flashcard.classList.remove("flipped");
+
+  // Update question
+  document.getElementById("flashcard-question").textContent = card.question;
+
+  // Update answer
+  const correctOption = card.options[card.correctAnswer];
+  document.getElementById("flashcard-answer").textContent =
+    String.fromCharCode(65 + card.correctAnswer) + ". " + correctOption;
+
+  // Update all options on back
+  const optionsContainer = document.getElementById("flashcard-options");
+  optionsContainer.innerHTML = "";
+
+  card.options.forEach((option, index) => {
+    const optionDiv = document.createElement("div");
+    optionDiv.className = "flashcard-option-item";
+    if (index === card.correctAnswer) {
+      optionDiv.classList.add("correct");
+    }
+
+    optionDiv.innerHTML = `
+            <div class="flashcard-option-label">${String.fromCharCode(65 + index)}</div>
+            <div class="flashcard-option-text">${option}</div>
+        `;
+
+    optionsContainer.appendChild(optionDiv);
+  });
+
+  // Update creator
+  document.getElementById("flashcard-creator-name").textContent = card.creator;
+
+  // Update category
+  document.getElementById("flashcard-category").textContent = card.unit;
+
+  // Mark as viewed
+  viewedFlashcards.add(currentFlashcardIndex);
+
+  // Update navigation buttons
+  updateFlashcardNavigation();
+}
+
+// Flip Flashcard
+function flipFlashcard() {
+  flashcard.classList.toggle("flipped");
+}
+
+// Previous Flashcard
+function previousFlashcard() {
+  if (currentFlashcardIndex > 0) {
+    currentFlashcardIndex--;
+    renderFlashcard();
+    updateFlashcardProgress();
+    renderFlashcardGrid();
+  }
+}
+
+// Next Flashcard
+function nextFlashcard() {
+  if (currentFlashcardIndex < flashcardData.length - 1) {
+    currentFlashcardIndex++;
+    renderFlashcard();
+    updateFlashcardProgress();
+    renderFlashcardGrid();
+  }
+}
+
+// Update Flashcard Navigation
+function updateFlashcardNavigation() {
+  prevFlashcardBtn.disabled = currentFlashcardIndex === 0;
+  nextFlashcardBtn.disabled =
+    currentFlashcardIndex === flashcardData.length - 1;
+}
+
+// Update Flashcard Progress
+function updateFlashcardProgress() {
+  const progress =
+    ((currentFlashcardIndex + 1) / flashcardData.length) * 100;
+  document.getElementById("current-flashcard").textContent =
+    currentFlashcardIndex + 1;
+  document.getElementById("total-flashcards").textContent =
+    flashcardData.length;
+  document.getElementById("flashcard-progress-fill").style.width =
+    progress + "%";
+}
+
+// Shuffle Flashcards
+function shuffleFlashcards() {
+  // Fisher-Yates shuffle algorithm
+  for (let i = flashcardData.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [flashcardData[i], flashcardData[j]] = [
+      flashcardData[j],
+      flashcardData[i],
+    ];
+  }
+
+  currentFlashcardIndex = 0;
+  viewedFlashcards.clear();
+  renderFlashcard();
+  updateFlashcardProgress();
+  renderFlashcardGrid();
+
+  // Visual feedback
+  shuffleFlashcardBtn.style.transform = "rotate(360deg)";
+  setTimeout(() => {
+    shuffleFlashcardBtn.style.transform = "rotate(0deg)";
+  }, 600);
+}
+
+// Toggle Auto Play
+function toggleAutoPlay() {
+  if (isAutoPlaying) {
+    stopAutoPlay();
+  } else {
+    startAutoPlay();
+  }
+}
+
+// Start Auto Play
+function startAutoPlay() {
+  isAutoPlaying = true;
+  autoPlayBtn.classList.add("active");
+
+  autoPlayInterval = setInterval(() => {
+    // Flip if not flipped
+    if (!flashcard.classList.contains("flipped")) {
+      flashcard.classList.add("flipped");
+    } else {
+      // Move to next card
+      if (currentFlashcardIndex < flashcardData.length - 1) {
+        nextFlashcard();
+      } else {
+        // Loop back to start
+        currentFlashcardIndex = 0;
+        renderFlashcard();
+        updateFlashcardProgress();
+        renderFlashcardGrid();
+      }
+    }
+  }, 3000); // 3 seconds per side
+}
+
+// Stop Auto Play
+function stopAutoPlay() {
+  isAutoPlaying = false;
+  autoPlayBtn.classList.remove("active");
+  if (autoPlayInterval) {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
+}
+
+// Render Flashcard Grid
+function renderFlashcardGrid() {
+  const grid = document.getElementById("flashcard-grid");
+  grid.innerHTML = "";
+
+  flashcardData.forEach((_, index) => {
+    const gridItem = document.createElement("div");
+    gridItem.className = "flashcard-grid-item";
+    gridItem.textContent = index + 1;
+
+    if (viewedFlashcards.has(index)) {
+      gridItem.classList.add("viewed");
+    }
+
+    if (index === currentFlashcardIndex) {
+      gridItem.classList.add("current");
+    }
+
+    gridItem.addEventListener("click", () => {
+      currentFlashcardIndex = index;
+      renderFlashcard();
+      updateFlashcardProgress();
+      renderFlashcardGrid();
+    });
+
+    grid.appendChild(gridItem);
+  });
+}
+
+// Keyboard Navigation for Flashcards
+document.addEventListener("keydown", (e) => {
+  if (!flashcardScreen.classList.contains("hidden")) {
+    if (e.key === "ArrowLeft") {
+      previousFlashcard();
+    } else if (e.key === "ArrowRight") {
+      nextFlashcard();
+    } else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      flipFlashcard();
+    }
+  }
+});

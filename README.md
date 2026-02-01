@@ -5,11 +5,14 @@
 ## 📋 Tính năng
 
 - ✅ **40 câu hỏi trắc nghiệm** về Node.js và các công nghệ liên quan
+- 🎴 **Chế độ học bằng thẻ ghi nhớ (Flashcards)** với hiệu ứng lật thẻ 3D
 - 🎨 **Giao diện hiện đại** với gradient đẹp mắt và animations mượt mà
 - 📊 **Thanh tiến trình** theo dõi quá trình làm bài
 - 🔄 **Điều hướng linh hoạt** giữa các câu hỏi
 - 📈 **Kết quả chi tiết** với biểu đồ tròn và thống kê
 - 📝 **Xem lại đáp án** sau khi hoàn thành
+- 🔀 **Xáo trộn thẻ** và chế độ tự động phát
+- ⌨️ **Hỗ trợ phím tắt** (Arrow keys, Space, Enter)
 - 📱 **Responsive design** hoạt động tốt trên mọi thiết bị
 - 🎭 **Hiệu ứng động** và micro-animations
 
@@ -49,6 +52,20 @@ quiz-app/
    - Xem điểm số và thống kê
    - Nhấn "Xem lại đáp án" để xem chi tiết
    - Nhấn "Làm lại" để bắt đầu lại từ đầu
+
+## 🎴 Hướng dẫn học bằng thẻ ghi nhớ
+
+1. **Bắt đầu**: Nhấn "Học bằng thẻ ghi nhớ" ở màn hình chào mừng
+2. **Xem câu hỏi**: Mặt trước thẻ hiển thị câu hỏi
+3. **Lật thẻ**: Click vào thẻ hoặc nhấn Space/Enter để xem đáp án
+4. **Điều hướng**:
+   - Nút "Thẻ trước" / "Thẻ tiếp theo"
+   - Phím mũi tên ← →
+   - Click vào số thứ tự thẻ ở danh sách
+5. **Tính năng đặc biệt**:
+   - 🔀 **Xáo trộn**: Trộn ngẫu nhiên thứ tự các thẻ
+   - ▶️ **Tự động phát**: Tự động lật và chuyển thẻ (3 giây/mặt)
+   - ⌨️ **Phím tắt**: Arrow keys (điều hướng), Space/Enter (lật thẻ)
 
 ## 📊 Hệ thống chấm điểm
 
