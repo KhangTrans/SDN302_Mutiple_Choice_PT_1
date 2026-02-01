@@ -897,8 +897,11 @@ function renderFlashcard() {
   // Reset flip state
   flashcard.classList.remove("flipped");
 
-  // Update question
+  // Update question on front
   document.getElementById("flashcard-question").textContent = card.question;
+
+  // Update question on back (for context)
+  document.getElementById("flashcard-question-back").textContent = card.question;
 
   // Update answer
   const correctOption = card.options[card.correctAnswer];

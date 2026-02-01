@@ -178,6 +178,25 @@
   margin-bottom: 16px;
 }
 
+.flashcard-question-back {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.flashcard-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 999px;
+  margin: 0 auto 20px;
+}
+
 .flashcard-answer {
   font-size: 28px;
   font-weight: 800;
